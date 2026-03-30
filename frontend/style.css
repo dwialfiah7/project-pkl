@@ -1,0 +1,353 @@
+/* --- Variabel Warna & Font --- */
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #f4f4f9;
+    --accent-color: #007bff;
+    --text-color: #333;
+    --light-text-color: #777;
+    --border-color: #ddd;
+    --shadow: 0 4px 8px rgba(0,0,0,0.1);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* --- Header & Footer --- */
+header, footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* --- Main Content --- */
+main {
+    padding: 2rem 0;
+}
+
+section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* --- Upload Section --- */
+.custom-file-upload {
+    display: inline-block;
+    padding: 12px 20px;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+}
+
+#file-upload {
+    display: none;
+}
+
+/* --- Document List & Controls --- */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.controls button {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    background: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.controls button.active {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* --- Document List View --- */
+.document-list {
+    list-style: none;
+    padding: 0;
+    display: grid; /* Default: Grid View */
+    gap: 15px;
+}
+
+.document-list.list-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.document-item {
+    background: #fdfdfd;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.document-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.document-item i {
+    font-size: 2rem;
+    margin-right: 15px;
+    color: var(--accent-color);
+}
+
+.document-item .details {
+    flex-grow: 1;
+}
+
+.document-item .details h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+}
+
+.document-item .details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+}
+
+.document-item .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.document-item .actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--light-text-color);
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.document-item .actions button.delete:hover {
+    color: #dc3545;
+}
+
+.document-item .actions button.download:hover {
+    color: var(--accent-color);
+}
+
+/* --- GAYA UNTUK NAVIGASI --- */
+.main-nav {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav .container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-btn:hover {
+    background-color: #e9ecef;
+}
+
+.nav-btn.active {
+    color: var(--primary-color);
+    font-weight: bold;
+    border-bottom-color: var(--primary-color);
+}
+
+/* --- GAYA UNTUK FORM DINAMIS --- */
+.document-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"] {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 5px;
+    margin-right: 15px;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+}
+
+#documentFile {
+    display: none;
+}
+
+.file-name {
+    font-style: italic;
+    color: var(--light-text-color);
+}
+
+.document-form button[type="submit"] {
+    align-self: flex-start;
+    padding: 12px 25px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.document-form button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* --- GAYA UNTUK TABEL --- */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.download-link {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--light-text-color);
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.delete-btn:hover {
+    color: #dc3545;
+}
+
